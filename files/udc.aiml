@@ -59,36 +59,40 @@
   <category>
     <pattern>WHAT ARE THE ADMISSIONS DEADLINES</pattern>
     <template>
-      The application deadlines at RPI are as follows:
-      <br/><br/>
-      - <b>Early Decision I:</b> November 1<br/>
-      - <b>Early Decision II:</b> December 15<br/>
-      - <b>Regular Decision:</b> January 15<br/><br/>
-      For more details, please visit our admissions website at 
-      <a href="https://admissions.rpi.edu/" target="_blank">Admissions Website</a>.
-      <br/><br/>
-      <think><set name="context">help_application</set></think>
-      Do you need additional assistance with the application process?
+      The application deadlines at RPI are:
+      <br/>
+      - Early Decision I: November 1<br/>
+      - Early Decision II: December 15<br/>
+      - Regular Decision: January 15<br/>
+      <br/>
+      <srai>ADMISSIONS DEADLINES</srai>
     </template>
   </category>
 
-  <!-- Follow-up for "YES" Response -->
+  <category>
+    <pattern>ADMISSIONS DEADLINES</pattern>
+    <template>
+      Would you like help with the application process?
+    </template>
+  </category>
+
+  <!-- YES Response -->
   <category>
     <pattern>YES</pattern>
+    <that>THE APPLICATION DEADLINES AT RPI ARE DASH EARLY DECISION I NOVEMBER 1 DASH EARLY DECISION II DECEMBER 15 DASH REGULAR DECISION JANUARY 15 WOULD YOU LIKE HELP WITH THE APPLICATION PROCESS</that>
     <template>
-    <think><set name="response_yes">true</set></think>
-    Great! You can find step-by-step instructions on how to apply by visiting 
-    <a href="https://admissions.rpi.edu/how-to-apply" target="_blank">How to Apply</a>.
+      Great! Here's how you can apply: 
+      <a href="https://admissions.rpi.edu/how-to-apply" target="_blank">How to Apply</a>.
     </template>
   </category>
 
-
+  <!-- NO Response -->
   <category>
-     <pattern>NO</pattern>
-     <template>
-      <think><set name="response_no">true</set></think>
-      No problem! If you have any more questions about RPI or the application process later, feel free to ask.
-     </template>
+    <pattern>NO</pattern>
+    <that>THE APPLICATION DEADLINES AT RPI ARE DASH EARLY DECISION I NOVEMBER 1 DASH EARLY DECISION II DECEMBER 15 DASH REGULAR DECISION JANUARY 15 WOULD YOU LIKE HELP WITH THE APPLICATION PROCESS</that>
+    <template>
+      No problem! If you have more questions about RPI later, feel free to ask.
+    </template>
   </category>
 
   <!-- ==================================================
