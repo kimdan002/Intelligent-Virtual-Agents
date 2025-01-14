@@ -8,14 +8,15 @@ Institute. The bot leverages the AIML framework and uses contextual response tec
 Features:
 1. Admissions Guidance:
 Handles queries about admissions deadlines, application processes, and early decision plans.
-2. Campus Insights:
+
+3. Campus Insights:
 Shares information about campus life, housing options, and student activities.
-3. Programs and Scholarships:
+4. Programs and Scholarships:
 Explains available programs and scholarship opportunities, including the prestigious Rensselaer Medal.
-4. Interactive and Personalized:
+5. Interactive and Personalized:
 Learns the user's name and favorite subject for a more personalized experience.
 Asks follow-up questions to keep the user engaged.
-5. Links to Resources:
+6. Links to Resources:
 Directs users to official pages on the RPI admissions website for further details.
 
 Design of the Dialogue Management System:
