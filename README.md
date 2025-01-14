@@ -21,11 +21,11 @@ Directs users to official pages on the RPI admissions website for further detail
 
 Design of the Dialogue Management System:
 
-  1.Centralized Information: Common responses ex. help commands and admissions deadlines are handled through dedicated <category> blocks, and some responses use <srai> for redirecting similar queries.
+  1. Centralized Information: Common responses ex. help commands and admissions deadlines are handled through dedicated <category> blocks, and some responses use <srai> for redirecting similar queries.
 
-  2.Dynamic Context Handling:<set> and <get>: Used to capture user inputs like name or favorite subject, allowing responses to be personalized.
+  2. Dynamic Context Handling:<set> and <get>: Used to capture user inputs like name or favorite subject, allowing responses to be personalized.
 <that>: Manages contextual responses based on the bot's previous reply, enabling multi-turn interactions.
 
-  3.Fallback Mechanism: By Default, provides a generic response for unrecognized inputs while encouraging the user to ask about admissions, programs, or campus life.
+  3. Fallback Mechanism: By Default, provides a generic response for unrecognized inputs while encouraging the user to ask about admissions, programs, or campus life.
 
-  4.Randomization: <random>: Offers varied responses for questions like "Why should I choose RPI?" to make conversations feel more natural.
+  4. Randomization: <random>: Offers varied responses for questions like "Why should I choose RPI?" to make conversations feel more natural.
