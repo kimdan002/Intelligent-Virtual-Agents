@@ -18,7 +18,7 @@ Asks follow-up questions to keep the user engaged.
 5. Links to Resources:
 Directs users to official pages on the RPI admissions website for further details.
 
-Design of the Dialogue Management System
+Design of the Dialogue Management System:
 1.Centralized Information:
 Common responses ex. help commands and admissions deadlines are handled through dedicated <category> blocks, and some responses use <srai> for redirecting similar queries.
 2.Dynamic Context Handling:
