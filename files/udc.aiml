@@ -1,25 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml>
+  <!-- Help Command -->
+  <category>
+    <pattern>HELP</pattern>
+    <template>
+      Here is a list of commands you can try:
+      <br/>
+      - "What are the admissions deadlines?"<br/>
+      - "How do I apply to RPI?"<br/>
+      - "Does RPI offer scholarships?"<br/>
+      - "What programs does RPI offer?"<br/>
+      - "What is campus life like at RPI?"<br/>
+      - "What are the housing options at RPI?"<br/>
+      - "Can I visit RPI?"<br/>
+      - "Tell me about RPI."<br/>
+      - "Why should I choose RPI?"<br/>
+      - "Do you know my name?"<br/>
+      - "My name is [Your Name]."<br/>
+      - "My favorite subject is [Your Subject]."<br/>
+      - "I am interested in [Program]."<br/>
+      <br/>
+      Let me know which one you'd like to know more about!
+    </template>
+  </category>
   <!-- Default response -->
   <category>
     <pattern>*</pattern>
     <template>
-      I'm sorry, I don't have an answer for that. Would you like to know more about RPI admissions, deadlines, or programs?
+      <think><set name="lastinput"><star/></set></think>
+      I'm sorry, I don't have an answer for "<get name='lastinput'/>". Would you like to know about RPI admissions, deadlines, or programs?
     </template>
   </category>
 
-  <!-- Admissions process -->
+  <!-- Welcome message with set and get -->
   <category>
-    <pattern>HOW DO I APPLY TO RPI</pattern>
+    <pattern>HELLO MY NAME IS *</pattern>
     <template>
-      You can apply to RPI through the Common Application or the Coalition Application. For details, visit: 
-      <a href="https://admissions.rpi.edu/how-to-apply">How to Apply</a>.
+      <think><set name="username"><star/></set></think>
+      Hello, <get name="username"/>! How can I assist you with information about RPI?
     </template>
   </category>
 
-  <!-- Deadlines -->
+  <!-- Redirect using srai -->
   <category>
-    <pattern>WHAT ARE THE APPLICATION DEADLINES</pattern>
+    <pattern>WHAT ARE THE ADMISSIONS DEADLINES</pattern>
+    <template><srai>DEADLINES</srai></template>
+  </category>
+
+  <category>
+    <pattern>DEADLINES</pattern>
     <template>
       The application deadlines are:
       <br/>
@@ -30,101 +59,100 @@
     </template>
   </category>
 
-  <!-- Scholarships -->
+  <!-- Scholarships with condition -->
   <category>
     <pattern>DOES RPI OFFER SCHOLARSHIPS</pattern>
     <template>
-      Yes! RPI offers merit-based and need-based scholarships. The Rensselaer Medal is a prestigious merit scholarship. 
-      Visit <a href="https://admissions.rpi.edu/financial-aid/scholarships">Scholarships</a> for more details.
+      <condition name="username">
+        <li value="undefined">Yes, RPI offers merit-based and need-based scholarships. The Rensselaer Medal is a prestigious merit scholarship.</li>
+        <li>Yes, <get name="username"/>! RPI offers scholarships, including the Rensselaer Medal and need-based awards.</li>
+      </condition>
     </template>
   </category>
 
-  <!-- Programs -->
-  <category>
-    <pattern>WHAT PROGRAMS DOES RPI OFFER</pattern>
-    <template>
-      RPI offers undergraduate and graduate programs in engineering, computer science, business, architecture, and more.
-      Learn more at <a href="https://admissions.rpi.edu/academics">Academics</a>.
-    </template>
-  </category>
-
-  <!-- Campus life -->
-  <category>
-    <pattern>WHAT IS CAMPUS LIFE LIKE AT RPI</pattern>
-    <template>
-      RPI has a vibrant campus life with over 200 student clubs, athletics, and a strong community spirit.
-      Explore more at <a href="https://studentlife.rpi.edu/">Student Life</a>.
-    </template>
-  </category>
-
-  <!-- Housing -->
-  <category>
-    <pattern>WHAT ARE THE HOUSING OPTIONS AT RPI</pattern>
-    <template>
-      RPI provides on-campus housing options for students, including residence halls and apartments. 
-      Visit <a href="https://studentlife.rpi.edu/housing">Housing</a> for more information.
-    </template>
-  </category>
-
-  <!-- Ask about interests -->
-  <category>
-    <pattern>WHAT PROGRAM IS BEST FOR ME</pattern>
-    <template>
-      It depends on your interests! RPI excels in engineering, computer science, business, and architecture. 
-      What are your academic and career goals?
-    </template>
-  </category>
-
-  <!-- Financial aid -->
-  <category>
-    <pattern>WHAT FINANCIAL AID OPTIONS ARE AVAILABLE</pattern>
-    <template>
-      RPI offers need-based financial aid, grants, and scholarships. Learn more at 
-      <a href="https://admissions.rpi.edu/financial-aid">Financial Aid</a>.
-    </template>
-  </category>
-
-  <!-- Tours -->
-  <category>
-    <pattern>CAN I VISIT RPI</pattern>
-    <template>
-      Yes! RPI offers in-person and virtual tours. Visit <a href="https://admissions.rpi.edu/visit">Visit RPI</a> to schedule your tour.
-    </template>
-  </category>
-
-  <!-- History -->
-  <category>
-    <pattern>WHEN WAS RPI FOUNDED</pattern>
-    <template>RPI was founded in 1824, making it one of the oldest technological universities in the United States.</template>
-  </category>
-
-  <!-- Random engagement -->
+  <!-- Random responses -->
   <category>
     <pattern>WHY SHOULD I CHOOSE RPI</pattern>
     <template>
       <random>
-        <li>RPI is known for its strong focus on research and innovation.</li>
-        <li>RPI has a rich history and a vibrant student community.</li>
-        <li>Graduates from RPI are highly sought after in the job market.</li>
+        <li>RPI is renowned for its research and innovation.</li>
+        <li>Graduates from RPI are leaders in their fields.</li>
+        <li>RPI has a strong focus on hands-on learning and career readiness.</li>
       </random>
     </template>
   </category>
 
-  <!-- Sports -->
+  <!-- Using set, get, and condition -->
   <category>
-    <pattern>DOES RPI HAVE SPORTS</pattern>
+    <pattern>MY FAVORITE SUBJECT IS *</pattern>
     <template>
-      Yes! RPI has a range of varsity and intramural sports. Learn more at 
-      <a href="https://www.rpiathletics.com/">RPI Athletics</a>.
+      <think><set name="favorite_subject"><star/></set></think>
+      That's great! RPI has excellent programs in <get name="favorite_subject"/>. Would you like to know the admissions requirements for this field?
     </template>
   </category>
 
-  <!-- General inquiry -->
+  <!-- Asking follow-up questions using that -->
+  <category>
+    <pattern>YES</pattern>
+    <that>WOULD YOU LIKE TO KNOW THE ADMISSIONS REQUIREMENTS FOR THIS FIELD</that>
+    <template>Great! Visit <a href="https://admissions.rpi.edu/how-to-apply">How to Apply</a> for detailed admissions requirements for <get name="favorite_subject"/>.</template>
+  </category>
+
+  <!-- Redirect using srai -->
   <category>
     <pattern>TELL ME ABOUT RPI</pattern>
+    <template><srai>RPI HISTORY</srai></template>
+  </category>
+
+  <category>
+    <pattern>RPI HISTORY</pattern>
     <template>
-      RPI, founded in 1824, is a leading university specializing in engineering, science, and technology. 
-      Learn more at <a href="https://admissions.rpi.edu/">Admissions</a>.
+      RPI, founded in 1824, is one of the oldest technological universities in the United States. Would you like to know about its founders or key milestones?
+    </template>
+  </category>
+
+  <!-- Condition for user input -->
+  <category>
+    <pattern>WHAT IS MY NAME</pattern>
+    <template>
+      <condition name="username">
+        <li value="undefined">I don't know your name yet. Please introduce yourself by saying "My name is [Your Name]".</li>
+        <li>Your name is <get name="username"/>.</li>
+      </condition>
+    </template>
+  </category>
+
+  <!-- Dynamic input using star -->
+  <category>
+    <pattern>I AM INTERESTED IN *</pattern>
+    <template>
+      The <star/> program at RPI is highly regarded. Would you like to know about the career outcomes or the admission process for this program?
+    </template>
+  </category>
+
+  <!-- Default response using think -->
+  <category>
+    <pattern>I DON'T KNOW</pattern>
+    <template>
+      <think><set name="uncertain"><star/></set></think>
+      That's okay! Would you like me to recommend a program or provide general admissions advice?
+    </template>
+  </category>
+
+  <!-- Follow-up based on that -->
+  <category>
+    <pattern>RECOMMEND A PROGRAM</pattern>
+    <that>THAT'S OKAY WOULD YOU LIKE ME TO RECOMMEND A PROGRAM OR PROVIDE GENERAL ADMISSIONS ADVICE</that>
+    <template>
+      Sure! RPI's engineering and computer science programs are among the best. Are you more interested in undergraduate or graduate programs?
+    </template>
+  </category>
+
+  <!-- Asking about visits -->
+  <category>
+    <pattern>CAN I VISIT RPI</pattern>
+    <template>
+      Yes, you can visit RPI! We offer in-person and virtual tours. Visit <a href="https://admissions.rpi.edu/visit">Visit RPI</a> to schedule your tour.
     </template>
   </category>
 </aiml>
