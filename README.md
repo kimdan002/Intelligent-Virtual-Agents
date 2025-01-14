@@ -2,6 +2,8 @@ README: RPI Admissions Chatbot
 
 Bot: rpiadmissions
 
+The RPI Admissions Chatbot is designed to provide answers and guidance to prospective students about admissions processes, programs, scholarships, campus life, and other important details at Rensselaer Polytechnic Institute. The bot leverages the AIML framework and uses contextual response techniques like srai, that, set, get, and condition to create an engaging and dynamic interaction.
+
 Features:
 1. Admissions Guidance: Answers questions about admissions deadlines, application processes, and early decision plans to help students plan effectively.
 2 Campus Insights: Provides details about campus life, housing options, and the variety of student activities available at RPI.
