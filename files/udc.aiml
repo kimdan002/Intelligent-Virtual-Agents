@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <!-- Default response -->
+  <category>
+    <pattern>*</pattern>
+    <template>
+      I'm sorry, I don't have an answer for that. Would you like to know more about RPI admissions, deadlines, or programs?
+    </template>
+  </category>
+
+  <!-- Admissions process -->
+  <category>
+    <pattern>HOW DO I APPLY TO RPI</pattern>
+    <template>
+      You can apply to RPI through the Common Application or the Coalition Application. For details, visit: 
+      <a href="https://admissions.rpi.edu/how-to-apply">How to Apply</a>.
+    </template>
+  </category>
+
+  <!-- Deadlines -->
+  <category>
+    <pattern>WHAT ARE THE APPLICATION DEADLINES</pattern>
+    <template>
+      The application deadlines are:
+      <br/>
+      - Early Decision I: November 1<br/>
+      - Early Decision II: December 15<br/>
+      - Regular Decision: January 15<br/>
+      Visit <a href="https://admissions.rpi.edu/apply/deadlines-requirements">Deadlines</a> for updates.
+    </template>
+  </category>
+
+  <!-- Scholarships -->
+  <category>
+    <pattern>DOES RPI OFFER SCHOLARSHIPS</pattern>
+    <template>
+      Yes! RPI offers merit-based and need-based scholarships. The Rensselaer Medal is a prestigious merit scholarship. 
+      Visit <a href="https://admissions.rpi.edu/financial-aid/scholarships">Scholarships</a> for more details.
+    </template>
+  </category>
+
+  <!-- Programs -->
+  <category>
+    <pattern>WHAT PROGRAMS DOES RPI OFFER</pattern>
+    <template>
+      RPI offers undergraduate and graduate programs in engineering, computer science, business, architecture, and more.
+      Learn more at <a href="https://admissions.rpi.edu/academics">Academics</a>.
+    </template>
+  </category>
+
+  <!-- Campus life -->
+  <category>
+    <pattern>WHAT IS CAMPUS LIFE LIKE AT RPI</pattern>
+    <template>
+      RPI has a vibrant campus life with over 200 student clubs, athletics, and a strong community spirit.
+      Explore more at <a href="https://studentlife.rpi.edu/">Student Life</a>.
+    </template>
+  </category>
+
+  <!-- Housing -->
+  <category>
+    <pattern>WHAT ARE THE HOUSING OPTIONS AT RPI</pattern>
+    <template>
+      RPI provides on-campus housing options for students, including residence halls and apartments. 
+      Visit <a href="https://studentlife.rpi.edu/housing">Housing</a> for more information.
+    </template>
+  </category>
+
+  <!-- Ask about interests -->
+  <category>
+    <pattern>WHAT PROGRAM IS BEST FOR ME</pattern>
+    <template>
+      It depends on your interests! RPI excels in engineering, computer science, business, and architecture. 
+      What are your academic and career goals?
+    </template>
+  </category>
+
+  <!-- Financial aid -->
+  <category>
+    <pattern>WHAT FINANCIAL AID OPTIONS ARE AVAILABLE</pattern>
+    <template>
+      RPI offers need-based financial aid, grants, and scholarships. Learn more at 
+      <a href="https://admissions.rpi.edu/financial-aid">Financial Aid</a>.
+    </template>
+  </category>
+
+  <!-- Tours -->
+  <category>
+    <pattern>CAN I VISIT RPI</pattern>
+    <template>
+      Yes! RPI offers in-person and virtual tours. Visit <a href="https://admissions.rpi.edu/visit">Visit RPI</a> to schedule your tour.
+    </template>
+  </category>
+
+  <!-- History -->
+  <category>
+    <pattern>WHEN WAS RPI FOUNDED</pattern>
+    <template>RPI was founded in 1824, making it one of the oldest technological universities in the United States.</template>
+  </category>
+
+  <!-- Random engagement -->
+  <category>
+    <pattern>WHY SHOULD I CHOOSE RPI</pattern>
+    <template>
+      <random>
+        <li>RPI is known for its strong focus on research and innovation.</li>
+        <li>RPI has a rich history and a vibrant student community.</li>
+        <li>Graduates from RPI are highly sought after in the job market.</li>
+      </random>
+    </template>
+  </category>
+
+  <!-- Sports -->
+  <category>
+    <pattern>DOES RPI HAVE SPORTS</pattern>
+    <template>
+      Yes! RPI has a range of varsity and intramural sports. Learn more at 
+      <a href="https://www.rpiathletics.com/">RPI Athletics</a>.
+    </template>
+  </category>
+
+  <!-- General inquiry -->
+  <category>
+    <pattern>TELL ME ABOUT RPI</pattern>
+    <template>
+      RPI, founded in 1824, is a leading university specializing in engineering, science, and technology. 
+      Learn more at <a href="https://admissions.rpi.edu/">Admissions</a>.
+    </template>
+  </category>
+</aiml>
