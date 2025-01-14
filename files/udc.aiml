@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aiml>
-  <!-- Help Command -->
+<aiml version="2.0">
+  <!-- ==================================================
+       HELP Command - Provides a list of commands 
+       ================================================== -->
   <category>
     <pattern>HELP</pattern>
     <template>
       Here is a list of commands you can try:
-      <br/>
+      <br/><br/>
       - "What are the admissions deadlines?"<br/>
       - "How do I apply to RPI?"<br/>
       - "Does RPI offer scholarships?"<br/>
@@ -18,141 +20,201 @@
       - "Do you know my name?"<br/>
       - "My name is [Your Name]."<br/>
       - "My favorite subject is [Your Subject]."<br/>
-      - "I am interested in [Program]."<br/>
-      <br/>
+      - "I am interested in [Program]."<br/><br/>
       Let me know which one you'd like to know more about!
     </template>
   </category>
-  <!-- Default response -->
+
+  <!-- ==================================================
+       Default Response - Handles any input not matching 
+       ================================================== -->
   <category>
     <pattern>*</pattern>
     <template>
       <think><set name="lastinput"><star/></set></think>
-      I'm sorry, I don't have an answer for "<get name='lastinput'/>". Would you like to know about RPI admissions, deadlines, or programs?
+      I'm sorry, I don't have an answer for "<get name="lastinput"/>". 
+      Would you like to know about RPI admissions, programs, or campus life?
     </template>
   </category>
 
-  <!-- Welcome message with set and get -->
+  <!-- ==================================================
+       Greeting and User Introduction 
+       ================================================== -->
   <category>
-    <pattern>HELLO MY NAME IS *</pattern>
+    <pattern>HELLO</pattern>
+    <template>
+      Hello! I'm here to answer your questions about RPI. What's your name?
+    </template>
+  </category>
+
+  <category>
+    <pattern>MY NAME IS *</pattern>
     <template>
       <think><set name="username"><star/></set></think>
-      Hello, <get name="username"/>! How can I assist you with information about RPI?
+      Nice to meet you, <get name="username"/>! Are you interested in undergraduate or graduate programs at RPI?
     </template>
   </category>
 
-  <!-- Redirect using srai -->
+  <!-- ==================================================
+       Admissions Deadlines 
+       ================================================== -->
   <category>
     <pattern>WHAT ARE THE ADMISSIONS DEADLINES</pattern>
-    <template><srai>DEADLINES</srai></template>
-  </category>
-
-  <category>
-    <pattern>DEADLINES</pattern>
     <template>
-      The application deadlines are:
-      <br/>
-      - Early Decision I: November 1<br/>
-      - Early Decision II: December 15<br/>
-      - Regular Decision: January 15<br/>
-      Visit <a href="https://admissions.rpi.edu/apply/deadlines-requirements">Deadlines</a> for updates.
+      The application deadlines at RPI are as follows:
+      <br/><br/>
+      - <b>Early Decision I:</b> November 1<br/>
+      - <b>Early Decision II:</b> December 15<br/>
+      - <b>Regular Decision:</b> January 15<br/><br/>
+      For more details, please visit our admissions website at 
+      <a href="https://admissions.rpi.edu/" target="_blank">https://admissions.rpi.edu/</a>.
+      <br/><br/>
+      <think><set name="context">help_application</set></think>
+      Do you need additional assistance with the application process?
     </template>
   </category>
 
-  <!-- Scholarships with condition -->
+  <!-- ==================================================
+       Follow-up for "YES" Response (Based on Context)
+       ================================================== -->
+  <category>
+    <pattern>YES</pattern>
+    <template>
+      <condition name="context">
+        <li value="help_application">
+          Great! You can find step-by-step instructions on how to apply by visiting 
+          <a href="https://admissions.rpi.edu/how-to-apply" target="_blank">How to Apply</a>.
+          <think><set name="context">none</set></think>
+          Do you have any other questions about admissions?
+        </li>
+        <!-- Add a default case if no context match is found -->
+        <li default="true">
+          Could you please clarify which information you’re confirming or need more details about?
+        </li>
+      </condition>
+    </template>
+  </category>
+
+  <!-- ==================================================
+       Follow-up for "NO" Response (Based on Context)
+       ================================================== -->
+  <category>
+    <pattern>NO</pattern>
+    <template>
+      <condition name="context">
+        <li value="help_application">
+          No problem! If you have any more questions about RPI or the application process later, feel free to ask.
+          <think><set name="context">none</set></think>
+        </li>
+        <li default="true">
+          Alright! Let me know if there's something else I can help you with.
+        </li>
+      </condition>
+    </template>
+  </category>
+
+  <!-- ==================================================
+       Scholarships Information
+       ================================================== -->
   <category>
     <pattern>DOES RPI OFFER SCHOLARSHIPS</pattern>
     <template>
       <condition name="username">
-        <li value="undefined">Yes, RPI offers merit-based and need-based scholarships. The Rensselaer Medal is a prestigious merit scholarship.</li>
-        <li>Yes, <get name="username"/>! RPI offers scholarships, including the Rensselaer Medal and need-based awards.</li>
+        <li value="undefined">
+          Yes, RPI offers both merit-based and need-based scholarships. Would you like to learn more about the Rensselaer Medal?
+        </li>
+        <li>
+          Yes, <get name="username"/>! RPI offers a variety of scholarships—including the prestigious Rensselaer Medal. Would you like details on how to apply?
+        </li>
       </condition>
     </template>
   </category>
 
-  <!-- Random responses -->
+  <!-- ==================================================
+       Programs Offered
+       ================================================== -->
+  <category>
+    <pattern>WHAT PROGRAMS DOES RPI OFFER</pattern>
+    <template>
+      RPI offers a wide range of undergraduate and graduate programs in fields including engineering, computer science, business, architecture, and more.
+      <br/><br/>
+      Which field interests you the most?
+    </template>
+  </category>
+
+  <!-- ==================================================
+       Campus Life at RPI
+       ================================================== -->
+  <category>
+    <pattern>WHAT IS CAMPUS LIFE LIKE AT RPI</pattern>
+    <template>
+      Campus life at RPI is vibrant, with over 200 student clubs and organizations, engaging campus events, and state-of-the-art facilities.
+      <br/><br/>
+      Do you have any specific interests, such as sports, arts, or technology?
+    </template>
+  </category>
+
+  <!-- ==================================================
+       Housing Options 
+       ================================================== -->
+  <category>
+    <pattern>WHAT ARE THE HOUSING OPTIONS AT RPI</pattern>
+    <template>
+      RPI provides a variety of housing options, including on-campus residence halls and apartments.
+      <br/><br/>
+      Are you planning to live on campus or off-campus?
+    </template>
+  </category>
+
+  <!-- ==================================================
+       Engagement and Reasons to Choose RPI
+       ================================================== -->
   <category>
     <pattern>WHY SHOULD I CHOOSE RPI</pattern>
     <template>
       <random>
-        <li>RPI is renowned for its research and innovation.</li>
-        <li>Graduates from RPI are leaders in their fields.</li>
-        <li>RPI has a strong focus on hands-on learning and career readiness.</li>
+        <li>RPI is recognized for its leadership in research and innovation. What field of study interests you the most?</li>
+        <li>Graduates from RPI excel in their industries. What are your career aspirations?</li>
+        <li>RPI emphasizes hands-on learning and real-world experience. Are you a fan of project-based learning?</li>
       </random>
     </template>
   </category>
 
-  <!-- Using set, get, and condition -->
+  <!-- ==================================================
+       Favorite Subject Handling
+       ================================================== -->
   <category>
     <pattern>MY FAVORITE SUBJECT IS *</pattern>
     <template>
       <think><set name="favorite_subject"><star/></set></think>
-      That's great! RPI has excellent programs in <get name="favorite_subject"/>. Would you like to know the admissions requirements for this field?
+      That's wonderful! RPI offers excellent programs in <get name="favorite_subject"/>.
+      <br/><br/>
+      Would you like to explore the admissions requirements for this field or learn about potential career opportunities?
     </template>
   </category>
 
-  <!-- Asking follow-up questions using that -->
-  <category>
-    <pattern>YES</pattern>
-    <that>WOULD YOU LIKE TO KNOW THE ADMISSIONS REQUIREMENTS FOR THIS FIELD</that>
-    <template>Great! Visit <a href="https://admissions.rpi.edu/how-to-apply">How to Apply</a> for detailed admissions requirements for <get name="favorite_subject"/>.</template>
-  </category>
-
-  <!-- Redirect using srai -->
-  <category>
-    <pattern>TELL ME ABOUT RPI</pattern>
-    <template><srai>RPI HISTORY</srai></template>
-  </category>
-
-  <category>
-    <pattern>RPI HISTORY</pattern>
-    <template>
-      RPI, founded in 1824, is one of the oldest technological universities in the United States. Would you like to know about its founders or key milestones?
-    </template>
-  </category>
-
-  <!-- Condition for user input -->
-  <category>
-    <pattern>WHAT IS MY NAME</pattern>
-    <template>
-      <condition name="username">
-        <li value="undefined">I don't know your name yet. Please introduce yourself by saying "My name is [Your Name]".</li>
-        <li>Your name is <get name="username"/>.</li>
-      </condition>
-    </template>
-  </category>
-
-  <!-- Dynamic input using star -->
+  <!-- ==================================================
+       User Interest in Specific Program
+       ================================================== -->
   <category>
     <pattern>I AM INTERESTED IN *</pattern>
     <template>
-      The <star/> program at RPI is highly regarded. Would you like to know about the career outcomes or the admission process for this program?
+      The <star/> program at RPI is well-regarded.
+      <br/><br/>
+      Are you considering undergraduate or graduate opportunities in this field?
     </template>
   </category>
 
-  <!-- Default response using think -->
-  <category>
-    <pattern>I DON'T KNOW</pattern>
-    <template>
-      <think><set name="uncertain"><star/></set></think>
-      That's okay! Would you like me to recommend a program or provide general admissions advice?
-    </template>
-  </category>
-
-  <!-- Follow-up based on that -->
-  <category>
-    <pattern>RECOMMEND A PROGRAM</pattern>
-    <that>THAT'S OKAY WOULD YOU LIKE ME TO RECOMMEND A PROGRAM OR PROVIDE GENERAL ADMISSIONS ADVICE</that>
-    <template>
-      Sure! RPI's engineering and computer science programs are among the best. Are you more interested in undergraduate or graduate programs?
-    </template>
-  </category>
-
-  <!-- Asking about visits -->
+  <!-- ==================================================
+       Campus Visits Information
+       ================================================== -->
   <category>
     <pattern>CAN I VISIT RPI</pattern>
     <template>
-      Yes, you can visit RPI! We offer in-person and virtual tours. Visit <a href="https://admissions.rpi.edu/visit">Visit RPI</a> to schedule your tour.
+      Yes, you can visit RPI! We offer both in-person and virtual tours.
+      <br/><br/>
+      Would you like assistance scheduling a visit or more information about what to expect during a tour?
     </template>
   </category>
+  
 </aiml>
