@@ -1,44 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-  <!-- ==================================================
-       HELP Command - Provides a list of commands 
-       ================================================== -->
-  <category>
-    <pattern>HELP</pattern>
-    <template>
-      Here is a list of commands you can try:
-      <br/><br/>
-      - "What are the admissions deadlines?"<br/>
-      - "How do I apply to RPI?"<br/>
-      - "Does RPI offer scholarships?"<br/>
-      - "What programs does RPI offer?"<br/>
-      - "What is campus life like at RPI?"<br/>
-      - "What are the housing options at RPI?"<br/>
-      - "Can I visit RPI?"<br/>
-      - "Tell me about RPI."<br/>
-      - "Why should I choose RPI?"<br/>
-      - "Do you know my name?"<br/>
-      - "My name is [Your Name]."<br/>
-      - "My favorite subject is [Your Subject]."<br/>
-      - "I am interested in [Program]."<br/><br/>
-      Let me know which one you'd like to know more about!
-    </template>
-  </category>
-
-  <!-- ==================================================
-       Default Response - Handles any input not matching 
-       ================================================== -->
-  <category>
-    <pattern>*</pattern>
-    <template>
-      <think><set name="lastinput"><star/></set></think>
-      I'm sorry, I don't have an answer for "<get name="lastinput"/>". 
-      Would you like to know about RPI admissions, programs, or campus life?
-    </template>
-  </category>
-
-
-
     <!-- ==================================================
       Expanded Greeting Handling 
       ================================================== -->
@@ -59,14 +20,6 @@
           Hello again, <get name="username"/>! How can I assist you with RPI today?
         </li>
       </condition>
-    </template>
-  </category>
-
-  <category>
-    <pattern>MY NAME IS *</pattern>
-    <template>
-      <think><set name="username"><star/></set></think>
-      Nice to meet you, <get name="username"/>! Are you interested in undergraduate or graduate programs at RPI?
     </template>
   </category>
 
@@ -97,6 +50,31 @@
     </template>
   </category>
   
+  <!-- ==================================================
+       HELP Command - Provides a list of commands 
+       ================================================== -->
+  <category>
+    <pattern>HELP</pattern>
+    <pattern>I NEED HELP</pattern>
+    <template>
+      Here is a list of commands you can try:
+      <br/><br/>
+      - "What are the admissions deadlines?"<br/>
+      - "How do I apply to RPI?"<br/>
+      - "Does RPI offer scholarships?"<br/>
+      - "What programs does RPI offer?"<br/>
+      - "What is campus life like at RPI?"<br/>
+      - "What are the housing options at RPI?"<br/>
+      - "Can I visit RPI?"<br/>
+      - "Tell me about RPI."<br/>
+      - "Why should I choose RPI?"<br/>
+      - "Do you know my name?"<br/>
+      - "My name is [Your Name]."<br/>
+      - "My favorite subject is [Your Subject]."<br/>
+      - "I am interested in [Program]."<br/><br/>
+      Let me know which one you'd like to know more about!
+    </template>
+  </category>
   <!-- Admissions Deadlines -->
   <category>
     <pattern>WHAT ARE THE ADMISSIONS DEADLINES</pattern>
@@ -240,5 +218,16 @@
       Would you like assistance scheduling a visit or more information about what to expect during a tour?
     </template>
   </category>
+    <!-- ==================================================
+       Default Response - Handles any input not matching 
+       ================================================== -->
+    <category>
+    <pattern>*</pattern>
+    <template>
+      <think><set name="lastinput"><star/></set></think>
+      I'm sorry, I don't have an answer for "<get name="lastinput"/>". 
+      Would you like to know about RPI admissions, programs, or campus life?
+    </template>
+    </category>
   
 </aiml>
