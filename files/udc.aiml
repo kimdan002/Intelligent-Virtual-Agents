@@ -4,13 +4,7 @@
       Expanded Greeting Handling 
       ================================================== -->
   <category>
-    <pattern>HELLO</pattern>
-    <pattern>HI</pattern>
     <pattern>HEY</pattern>
-    <pattern>HELLO THERE</pattern>
-    <pattern>GOOD MORNING</pattern>
-    <pattern>GOOD AFTERNOON</pattern>
-    <pattern>GOOD EVENING</pattern>
     <template>
       <condition name="username">
         <li value="undefined">
@@ -22,13 +16,52 @@
       </condition>
     </template>
   </category>
-
+    <category>
+    <pattern>HI</pattern>
+    <template>
+      <condition name="username">
+        <li value="undefined">
+          Hello! I'm here to answer your questions about RPI. What's your name?
+        </li>
+        <li>
+          Hello again, <get name="username"/>! How can I assist you with RPI today?
+        </li>
+      </condition>
+    </template>
+  </category>
+    <category>
+    <pattern>HELLO</pattern>
+    <template>
+      <condition name="username">
+        <li value="undefined">
+          Hello! I'm here to answer your questions about RPI. What's your name?
+        </li>
+        <li>
+          Hello again, <get name="username"/>! How can I assist you with RPI today?
+        </li>
+      </condition>
+    </template>
+  </category>
   <!-- ==================================================
       Greeting with "HOW ARE YOU" Handling
       ================================================== -->
   <category>
     <pattern>HOW ARE YOU</pattern>
+    <template>
+      I'm just a chatbot, but I'm here and ready to help! 
+      <br/><br/>
+      How can I assist you with questions about RPI?
+    </template>
+  </category>
+  <category>
     <pattern>HOW'S IT GOING</pattern>
+    <template>
+      I'm just a chatbot, but I'm here and ready to help! 
+      <br/><br/>
+      How can I assist you with questions about RPI?
+    </template>
+  </category>
+    <category>
     <pattern>HOW ARE YOU DOING</pattern>
     <template>
       I'm just a chatbot, but I'm here and ready to help! 
@@ -36,13 +69,24 @@
       How can I assist you with questions about RPI?
     </template>
   </category>
-
   <!-- ==================================================
       Greeting with User Name Handling
       ================================================== -->
   <category>
     <pattern>HI MY NAME IS *</pattern>
+    <template>
+      <think><set name="username"><star/></set></think>
+      Nice to meet you, <get name="username"/>! What would you like to know about RPI?
+    </template>
+  </category>
+    <category>
     <pattern>HELLO MY NAME IS *</pattern>
+    <template>
+      <think><set name="username"><star/></set></think>
+      Nice to meet you, <get name="username"/>! What would you like to know about RPI?
+    </template>
+  </category>
+    <category>
     <pattern>HEY MY NAME IS *</pattern>
     <template>
       <think><set name="username"><star/></set></think>
@@ -55,7 +99,6 @@
        ================================================== -->
   <category>
     <pattern>HELP</pattern>
-    <pattern>I NEED HELP</pattern>
     <template>
       Here is a list of commands you can try:
       <br/><br/>
@@ -143,12 +186,28 @@
       Which field interests you the most?
     </template>
   </category>
+   <category>
+    <pattern>WHAT ARE THE PROGRAMS</pattern>
+    <template>
+      RPI offers a wide range of undergraduate and graduate programs in fields including engineering, computer science, business, architecture, and more.
+      <br/><br/>
+      Which field interests you the most?
+    </template>
+  </category>
 
   <!-- ==================================================
        Campus Life at RPI
        ================================================== -->
   <category>
     <pattern>WHAT IS CAMPUS LIFE LIKE AT RPI</pattern>
+    <template>
+      Campus life at RPI is vibrant, with over 200 student clubs and organizations, engaging campus events, and state-of-the-art facilities.
+      <br/><br/>
+      Do you have any specific interests, such as sports, arts, or technology?
+    </template>
+  </category>
+  <category>
+    <pattern>HOW IS CAMPUS LIFE</pattern>
     <template>
       Campus life at RPI is vibrant, with over 200 student clubs and organizations, engaging campus events, and state-of-the-art facilities.
       <br/><br/>
@@ -227,6 +286,7 @@
       <think><set name="lastinput"><star/></set></think>
       I'm sorry, I don't have an answer for "<get name="lastinput"/>". 
       Would you like to know about RPI admissions, programs, or campus life?
+      If you want to see what I can answer ask "Help".
     </template>
     </category>
   
