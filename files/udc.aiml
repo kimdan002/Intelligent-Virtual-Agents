@@ -37,13 +37,28 @@
     </template>
   </category>
 
-  <!-- ==================================================
-       Greeting and User Introduction 
-       ================================================== -->
+
+
+    <!-- ==================================================
+      Expanded Greeting Handling 
+      ================================================== -->
   <category>
     <pattern>HELLO</pattern>
+    <pattern>HI</pattern>
+    <pattern>HEY</pattern>
+    <pattern>HELLO THERE</pattern>
+    <pattern>GOOD MORNING</pattern>
+    <pattern>GOOD AFTERNOON</pattern>
+    <pattern>GOOD EVENING</pattern>
     <template>
-      Hello! I'm here to answer your questions about RPI. What's your name?
+      <condition name="username">
+        <li value="undefined">
+          Hello! I'm here to answer your questions about RPI. What's your name?
+        </li>
+        <li>
+          Hello again, <get name="username"/>! How can I assist you with RPI today?
+        </li>
+      </condition>
     </template>
   </category>
 
@@ -52,6 +67,33 @@
     <template>
       <think><set name="username"><star/></set></think>
       Nice to meet you, <get name="username"/>! Are you interested in undergraduate or graduate programs at RPI?
+    </template>
+  </category>
+
+  <!-- ==================================================
+      Greeting with "HOW ARE YOU" Handling
+      ================================================== -->
+  <category>
+    <pattern>HOW ARE YOU</pattern>
+    <pattern>HOW'S IT GOING</pattern>
+    <pattern>HOW ARE YOU DOING</pattern>
+    <template>
+      I'm just a chatbot, but I'm here and ready to help! 
+      <br/><br/>
+      How can I assist you with questions about RPI?
+    </template>
+  </category>
+
+  <!-- ==================================================
+      Greeting with User Name Handling
+      ================================================== -->
+  <category>
+    <pattern>HI MY NAME IS *</pattern>
+    <pattern>HELLO MY NAME IS *</pattern>
+    <pattern>HEY MY NAME IS *</pattern>
+    <template>
+      <think><set name="username"><star/></set></think>
+      Nice to meet you, <get name="username"/>! What would you like to know about RPI?
     </template>
   </category>
   
