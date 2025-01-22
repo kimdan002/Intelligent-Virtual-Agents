@@ -11,7 +11,7 @@
           Hello! I'm here to answer your questions about RPI. What's your name?
         </li>
         <li>
-          Hello again, <get name="username"/>! How can I assist you with RPI today?
+          Hello again, <get name="username"/>! How can I assist you with RPI today? Do you have a favorite subject?
         </li>
       </condition>
     </template>
@@ -21,10 +21,10 @@
     <template>
       <condition name="username">
         <li value="undefined">
-          Hello! I'm here to answer your questions about RPI. What's your name?
+          Hello! I'm here to answer your questions about RPI. What's your name? Do you have a favorite subject?
         </li>
         <li>
-          Hello again, <get name="username"/>! How can I assist you with RPI today?
+          Hello again, <get name="username"/>! How can I assist you with RPI today? Do you have a favorite subject?
         </li>
       </condition>
     </template>
@@ -37,7 +37,7 @@
           Hello! I'm here to answer your questions about RPI. What's your name?
         </li>
         <li>
-          Hello again, <get name="username"/>! How can I assist you with RPI today?
+          Hello again, <get name="username"/>! How can I assist you with RPI today? Do you have a favorite subject?
         </li>
       </condition>
     </template>
