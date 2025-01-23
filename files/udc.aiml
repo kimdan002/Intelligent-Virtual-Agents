@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-    <!-- ==================================================
-      Expanded Greeting Handling 
-      ================================================== -->
+
+  <!-- ==================================================
+       Expanded Greeting Handling
+       ================================================== -->
   <category>
     <pattern>HEY</pattern>
     <template>
@@ -11,25 +12,27 @@
           Hello! I'm here to answer your questions about RPI. What's your name?
         </li>
         <li>
-          Hello again, <get name="username"/>! How can I assist you with RPI today? Do you have a favorite subject?
+          Hello again, <get name="username"/>! How can I assist you with RPI today?
         </li>
       </condition>
     </template>
   </category>
-    <category>
+
+  <category>
     <pattern>HI</pattern>
     <template>
       <condition name="username">
         <li value="undefined">
-          Hello! I'm here to answer your questions about RPI. What's your name? Do you have a favorite subject?
+          Hello! I'm here to answer your questions about RPI. What's your name?
         </li>
         <li>
-          Hello again, <get name="username"/>! How can I assist you with RPI today? Do you have a favorite subject?
+          Hello again, <get name="username"/>! How can I assist you with RPI today?
         </li>
       </condition>
     </template>
   </category>
-    <category>
+
+  <category>
     <pattern>HELLO</pattern>
     <template>
       <condition name="username">
@@ -37,14 +40,15 @@
           Hello! I'm here to answer your questions about RPI. What's your name?
         </li>
         <li>
-          Hello again, <get name="username"/>! How can I assist you with RPI today? Do you have a favorite subject?
+          Hello again, <get name="username"/>! How can I assist you with RPI today?
         </li>
       </condition>
     </template>
   </category>
+
   <!-- ==================================================
-      Greeting with "HOW ARE YOU" Handling
-      ================================================== -->
+       Greeting with "HOW ARE YOU" Handling
+       ================================================== -->
   <category>
     <pattern>HOW ARE YOU</pattern>
     <template>
@@ -53,6 +57,7 @@
       How can I assist you with questions about RPI?
     </template>
   </category>
+
   <category>
     <pattern>HOW'S IT GOING</pattern>
     <template>
@@ -61,7 +66,8 @@
       How can I assist you with questions about RPI?
     </template>
   </category>
-    <category>
+
+  <category>
     <pattern>HOW ARE YOU DOING</pattern>
     <template>
       I'm just a chatbot, but I'm here and ready to help! 
@@ -69,9 +75,10 @@
       How can I assist you with questions about RPI?
     </template>
   </category>
+
   <!-- ==================================================
-      Greeting with User Name Handling
-      ================================================== -->
+       Greeting with User Name Handling
+       ================================================== -->
   <category>
     <pattern>HI MY NAME IS *</pattern>
     <template>
@@ -79,14 +86,16 @@
       Nice to meet you, <get name="username"/>! What would you like to know about RPI?
     </template>
   </category>
-    <category>
+
+  <category>
     <pattern>HELLO MY NAME IS *</pattern>
     <template>
       <think><set name="username"><star/></set></think>
       Nice to meet you, <get name="username"/>! What would you like to know about RPI?
     </template>
   </category>
-    <category>
+
+  <category>
     <pattern>HEY MY NAME IS *</pattern>
     <template>
       <think><set name="username"><star/></set></think>
@@ -118,7 +127,10 @@
       Let me know which one you'd like to know more about!
     </template>
   </category>
-  <!-- Admissions Deadlines -->
+
+  <!-- ==================================================
+       Admissions Deadlines
+       ================================================== -->
   <category>
     <pattern>WHAT ARE THE ADMISSIONS DEADLINES</pattern>
     <template>
@@ -166,10 +178,12 @@
     <template>
       <condition name="username">
         <li value="undefined">
-          Yes, RPI offers both merit-based and need-based scholarships. Would you like to learn more about the Rensselaer Medal?
+          Yes, RPI offers both merit-based and need-based scholarships. 
+          Would you like to learn more about the Rensselaer Medal?
         </li>
         <li>
-          Yes, <get name="username"/>! RPI offers a variety of scholarships—including the prestigious Rensselaer Medal. Would you like details on how to apply?
+          Yes, <get name="username"/>! RPI offers a variety of scholarships—including the prestigious Rensselaer Medal. 
+          Would you like details on how to apply?
         </li>
       </condition>
     </template>
@@ -181,19 +195,54 @@
   <category>
     <pattern>WHAT PROGRAMS DOES RPI OFFER</pattern>
     <template>
-      RPI offers a wide range of undergraduate and graduate programs in fields including engineering, computer science, business, architecture, and more.
+      RPI offers a wide range of undergraduate and graduate programs in fields 
+      including engineering, computer science, business, architecture, and more.
       <br/><br/>
       Which field interests you the most?
     </template>
   </category>
-   <category>
+
+  <category>
     <pattern>WHAT ARE THE PROGRAMS</pattern>
     <template>
-      RPI offers a wide range of undergraduate and graduate programs in fields including engineering, computer science, business, architecture, and more.
+      RPI offers a wide range of undergraduate and graduate programs in fields 
+      including engineering, computer science, business, architecture, and more.
       <br/><br/>
       Which field interests you the most?
     </template>
   </category>
+
+  <!-- Multi-turn follow-up if user says "ENGINEERING," "BUSINESS," etc. -->
+  <category>
+    <pattern>ENGINEERING</pattern>
+    <that>*WHICH FIELD INTERESTS YOU THE MOST*</that>
+    <template>
+      RPI's engineering programs are top-tier, spanning mechanical, civil, electrical, chemical, and more.
+      <br/>
+      Do you have a specific engineering discipline in mind?
+    </template>
+  </category>
+
+  <category>
+    <pattern>BUSINESS</pattern>
+    <that>*WHICH FIELD INTERESTS YOU THE MOST*</that>
+    <template>
+      The Lally School of Management at RPI offers business programs with a strong technological integration.
+      <br/>
+      Are you looking for undergraduate or graduate business programs?
+    </template>
+  </category>
+
+  <!-- Catch-all if user chooses some other field after "Which field interests you the most?" -->
+  <category>
+    <pattern>*</pattern>
+    <that>*WHICH FIELD INTERESTS YOU THE MOST*</that>
+    <template>
+      That sounds great! RPI has robust offerings in <star/>, too.
+      Would you like to explore admissions requirements, or learn about campus life for <star/> students?
+    </template>
+  </category>
+
 
   <!-- ==================================================
        Campus Life at RPI
@@ -201,19 +250,56 @@
   <category>
     <pattern>WHAT IS CAMPUS LIFE LIKE AT RPI</pattern>
     <template>
-      Campus life at RPI is vibrant, with over 200 student clubs and organizations, engaging campus events, and state-of-the-art facilities.
+      Campus life at RPI is vibrant, with over 200 student clubs and organizations, engaging campus events, 
+      and state-of-the-art facilities.
       <br/><br/>
       Do you have any specific interests, such as sports, arts, or technology?
     </template>
   </category>
+
   <category>
     <pattern>HOW IS CAMPUS LIFE</pattern>
     <template>
-      Campus life at RPI is vibrant, with over 200 student clubs and organizations, engaging campus events, and state-of-the-art facilities.
+      Campus life at RPI is vibrant, with over 200 student clubs and organizations, engaging campus events, 
+      and state-of-the-art facilities.
       <br/><br/>
       Do you have any specific interests, such as sports, arts, or technology?
     </template>
   </category>
+
+  <!-- A multi-turn follow-up if user says "SPORTS," "ARTS," or "TECHNOLOGY" after "Do you have any specific interests?" -->
+  <category>
+    <pattern>SPORTS</pattern>
+    <that>*DO YOU HAVE ANY SPECIFIC INTERESTS SUCH AS SPORTS ARTS OR TECHNOLOGY*</that>
+    <template>
+      RPI offers Division I hockey, numerous Division III sports, and plenty of intramurals. 
+      <br/>
+      Are you more interested in varsity athletics, or casual leagues?
+    </template>
+  </category>
+
+  <category>
+    <pattern>ARTS</pattern>
+    <that>*DO YOU HAVE ANY SPECIFIC INTERESTS SUCH AS SPORTS ARTS OR TECHNOLOGY*</that>
+    <template>
+      There are various arts-related clubs, performance groups, and events on campus. 
+      From theater productions to visual arts showcases, there's a lot going on!
+      <br/>
+      Are you interested in joining clubs or just attending performances?
+    </template>
+  </category>
+
+  <category>
+    <pattern>TECHNOLOGY</pattern>
+    <that>*DO YOU HAVE ANY SPECIFIC INTERESTS SUCH AS SPORTS ARTS OR TECHNOLOGY*</that>
+    <template>
+      As a tech-focused institution, RPI has a strong culture around innovation and research. 
+      <br/>
+      We have robotics clubs, hackathons, and research labs you can join. 
+      Any of these pique your interest?
+    </template>
+  </category>
+
 
   <!-- ==================================================
        Housing Options 
@@ -226,6 +312,30 @@
       Are you planning to live on campus or off-campus?
     </template>
   </category>
+
+  <!-- Multi-turn: user might say "ON CAMPUS" or "OFF CAMPUS" -->
+  <category>
+    <pattern>ON CAMPUS</pattern>
+    <that>*ARE YOU PLANNING TO LIVE ON CAMPUS OR OFF CAMPUS*</that>
+    <template>
+      Living on campus can be a great way to immerse yourself in RPI culture. 
+      We have first-year residence halls, suite-style living, and apartment communities. 
+      <br/>
+      Would you like more info on first-year housing or upperclass housing?
+    </template>
+  </category>
+
+  <category>
+    <pattern>OFF CAMPUS</pattern>
+    <that>*ARE YOU PLANNING TO LIVE ON CAMPUS OR OFF CAMPUS*</that>
+    <template>
+      Many students choose off-campus housing after their first year. 
+      Troy has a variety of apartments and shared houses near campus.
+      <br/>
+      Are you looking for resources on how to find off-campus rentals or just curious about the pros and cons?
+    </template>
+  </category>
+
 
   <!-- ==================================================
        Engagement and Reasons to Choose RPI
@@ -277,17 +387,18 @@
       Would you like assistance scheduling a visit or more information about what to expect during a tour?
     </template>
   </category>
-    <!-- ==================================================
-       Default Response - Handles any input not matching 
+
+  <!-- ==================================================
+       Default Response - Handles any input not matching
        ================================================== -->
-    <category>
+  <category>
     <pattern>*</pattern>
     <template>
       <think><set name="lastinput"><star/></set></think>
       I'm sorry, I don't have an answer for "<get name="lastinput"/>". 
       Would you like to know about RPI admissions, programs, or campus life?
-      If you want to see what I can answer ask "Help".
+      If you want to see what I can answer, ask "Help".
     </template>
-    </category>
-  
+  </category>
+
 </aiml>
