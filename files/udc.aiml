@@ -52,7 +52,7 @@
   <category>
     <pattern>HOW ARE YOU</pattern>
     <template>
-      I'm just a chatbot, but I'm here and ready to help! 
+      I'm just a chatbot, but I'm here and ready to help!
       <br/><br/>
       How can I assist you with questions about RPI?
     </template>
@@ -61,7 +61,7 @@
   <category>
     <pattern>HOW'S IT GOING</pattern>
     <template>
-      I'm just a chatbot, but I'm here and ready to help! 
+      I'm just a chatbot, but I'm here and ready to help!
       <br/><br/>
       How can I assist you with questions about RPI?
     </template>
@@ -70,7 +70,7 @@
   <category>
     <pattern>HOW ARE YOU DOING</pattern>
     <template>
-      I'm just a chatbot, but I'm here and ready to help! 
+      I'm just a chatbot, but I'm here and ready to help!
       <br/><br/>
       How can I assist you with questions about RPI?
     </template>
@@ -102,9 +102,9 @@
       Nice to meet you, <get name="username"/>! What would you like to know about RPI?
     </template>
   </category>
-  
+
   <!-- ==================================================
-       HELP Command - Provides a list of commands 
+       HELP Command - Provides a list of commands
        ================================================== -->
   <category>
     <pattern>HELP</pattern>
@@ -156,7 +156,7 @@
     <pattern>YES</pattern>
     <that>THE APPLICATION DEADLINES AT RPI ARE DASH EARLY DECISION I NOVEMBER 1 DASH EARLY DECISION II DECEMBER 15 DASH REGULAR DECISION JANUARY 15 WOULD YOU LIKE HELP WITH THE APPLICATION PROCESS</that>
     <template>
-      Great! Here's how you can apply: 
+      Great! Here's how you can apply:
       <a href="https://admissions.rpi.edu/how-to-apply" target="_blank">How to Apply</a>.
     </template>
   </category>
@@ -190,151 +190,74 @@
   </category>
 
   <!-- ==================================================
-       Programs Offered
+       Programs Offered (with multi-turn follow-up)
        ================================================== -->
-  <category>
-    <pattern>WHAT PROGRAMS DOES RPI OFFER</pattern>
-    <template>
-      RPI offers a wide range of undergraduate and graduate programs in fields 
-      including engineering, computer science, business, architecture, and more.
-      <br/><br/>
-      Which field interests you the most?
-    </template>
-  </category>
-
-  <category>
-    <pattern>WHAT ARE THE PROGRAMS</pattern>
-    <template>
-      RPI offers a wide range of undergraduate and graduate programs in fields 
-      including engineering, computer science, business, architecture, and more.
-      <br/><br/>
-      Which field interests you the most?
-    </template>
-  </category>
-
-  <!-- Multi-turn follow-up if user says "ENGINEERING," "BUSINESS," etc. -->
-  <category>
-    <pattern>ENGINEERING</pattern>
-    <that>*WHICH FIELD INTERESTS YOU THE MOST*</that>
-    <template>
-      RPI's engineering programs are top-tier, spanning mechanical, civil, electrical, chemical, and more.
-      <br/>
-      Do you have a specific engineering discipline in mind?
-    </template>
-  </category>
-
-  <category>
-    <pattern>BUSINESS</pattern>
-    <that>*WHICH FIELD INTERESTS YOU THE MOST*</that>
-    <template>
-      The Lally School of Management at RPI offers business programs with a strong technological integration.
-      <br/>
-      Are you looking for undergraduate or graduate business programs?
-    </template>
-  </category>
-
-  <!-- Catch-all if user chooses some other field after "Which field interests you the most?" -->
-  <category>
-    <pattern>*</pattern>
-    <that>*WHICH FIELD INTERESTS YOU THE MOST*</that>
-    <template>
-      That sounds great! RPI has robust offerings in <star/>, too.
-      Would you like to explore admissions requirements, or learn about campus life for <star/> students?
-    </template>
-  </category>
+    <category>
+      <pattern>WHAT IS CAMPUS LIFE LIKE AT RPI</pattern>
+      <template>
+        campus life at rpi is vibrant with over 200 student clubs and organizations engaging campus events and state of the art facilities do you have any specific interests sports arts or technology
+      </template>
+    </category>
+    
+    <category>
+      <pattern>HOW IS CAMPUS LIFE</pattern>
+      <template>
+        campus life at rpi is vibrant with over 200 student clubs and organizations engaging campus events and state of the art facilities do you have any specific interests sports arts or technology
+      </template>
+    </category>
+    
+    <category>
+      <pattern>SPORTS</pattern>
+      <that>campus life at rpi is vibrant with over 200 student clubs and organizations engaging campus events and state of the art facilities do you have any specific interests sports arts or technology</that>
+      <template>
+        rpi offers division i hockey numerous division iii sports and many intramurals are you more interested in varsity athletics or casual leagues
+      </template>
+    </category>
+    
+    <category>
+      <pattern>ARTS</pattern>
+      <that>campus life at rpi is vibrant with over 200 student clubs and organizations engaging campus events and state of the art facilities do you have any specific interests sports arts or technology</that>
+      <template>
+        there are various arts clubs and performance groups from theater productions to visual arts showcases are you interested in joining clubs or just attending performances
+      </template>
+    </category>
+    
+    <category>
+      <pattern>TECHNOLOGY</pattern>
+      <that>campus life at rpi is vibrant with over 200 student clubs and organizations engaging campus events and state of the art facilities do you have any specific interests sports arts or technology</that>
+      <template>
+        as a tech focused school rpi has robotics clubs hackathons and research labs you can join any of these pique your interest
+      </template>
+    </category>
 
 
   <!-- ==================================================
-       Campus Life at RPI
+       Housing Options
        ================================================== -->
-  <category>
-    <pattern>WHAT IS CAMPUS LIFE LIKE AT RPI</pattern>
-    <template>
-      Campus life at RPI is vibrant, with over 200 student clubs and organizations, engaging campus events, 
-      and state-of-the-art facilities.
-      <br/><br/>
-      Do you have any specific interests, such as sports, arts, or technology?
-    </template>
-  </category>
-
-  <category>
-    <pattern>HOW IS CAMPUS LIFE</pattern>
-    <template>
-      Campus life at RPI is vibrant, with over 200 student clubs and organizations, engaging campus events, 
-      and state-of-the-art facilities.
-      <br/><br/>
-      Do you have any specific interests, such as sports, arts, or technology?
-    </template>
-  </category>
-
-  <!-- A multi-turn follow-up if user says "SPORTS," "ARTS," or "TECHNOLOGY" after "Do you have any specific interests?" -->
-  <category>
-    <pattern>SPORTS</pattern>
-    <that>*DO YOU HAVE ANY SPECIFIC INTERESTS SUCH AS SPORTS ARTS OR TECHNOLOGY*</that>
-    <template>
-      RPI offers Division I hockey, numerous Division III sports, and plenty of intramurals. 
-      <br/>
-      Are you more interested in varsity athletics, or casual leagues?
-    </template>
-  </category>
-
-  <category>
-    <pattern>ARTS</pattern>
-    <that>*DO YOU HAVE ANY SPECIFIC INTERESTS SUCH AS SPORTS ARTS OR TECHNOLOGY*</that>
-    <template>
-      There are various arts-related clubs, performance groups, and events on campus. 
-      From theater productions to visual arts showcases, there's a lot going on!
-      <br/>
-      Are you interested in joining clubs or just attending performances?
-    </template>
-  </category>
-
-  <category>
-    <pattern>TECHNOLOGY</pattern>
-    <that>*DO YOU HAVE ANY SPECIFIC INTERESTS SUCH AS SPORTS ARTS OR TECHNOLOGY*</that>
-    <template>
-      As a tech-focused institution, RPI has a strong culture around innovation and research. 
-      <br/>
-      We have robotics clubs, hackathons, and research labs you can join. 
-      Any of these pique your interest?
-    </template>
-  </category>
-
-
-  <!-- ==================================================
-       Housing Options 
-       ================================================== -->
-  <category>
-    <pattern>WHAT ARE THE HOUSING OPTIONS AT RPI</pattern>
-    <template>
-      RPI provides a variety of housing options, including on-campus residence halls and apartments.
-      <br/><br/>
-      Are you planning to live on campus or off-campus?
-    </template>
-  </category>
-
-  <!-- Multi-turn: user might say "ON CAMPUS" or "OFF CAMPUS" -->
-  <category>
-    <pattern>ON CAMPUS</pattern>
-    <that>*ARE YOU PLANNING TO LIVE ON CAMPUS OR OFF CAMPUS*</that>
-    <template>
-      Living on campus can be a great way to immerse yourself in RPI culture. 
-      We have first-year residence halls, suite-style living, and apartment communities. 
-      <br/>
-      Would you like more info on first-year housing or upperclass housing?
-    </template>
-  </category>
-
-  <category>
-    <pattern>OFF CAMPUS</pattern>
-    <that>*ARE YOU PLANNING TO LIVE ON CAMPUS OR OFF CAMPUS*</that>
-    <template>
-      Many students choose off-campus housing after their first year. 
-      Troy has a variety of apartments and shared houses near campus.
-      <br/>
-      Are you looking for resources on how to find off-campus rentals or just curious about the pros and cons?
-    </template>
-  </category>
+    <category>
+      <pattern>WHAT ARE THE HOUSING OPTIONS AT RPI</pattern>
+      <template>
+        rpi provides a variety of housing options including on campus residence halls and apartments are you planning to live on campus or off campus
+      </template>
+    </category>
+    
+    <category>
+      <pattern>ON CAMPUS</pattern>
+      <that>rpi provides a variety of housing options including on campus residence halls and apartments are you planning to live on campus or off campus</that>
+      <template>
+        living on campus can be a great way to immerse yourself in rpi culture we have first year residence halls suite style living and apartment communities for more details see 
+        <a href="https://reslife.rpi.edu/" target="_blank">rpi housing</a> would you like info on first year housing or upperclass housing
+      </template>
+    </category>
+    
+    <category>
+      <pattern>OFF CAMPUS</pattern>
+      <that>rpi provides a variety of housing options including on campus residence halls and apartments are you planning to live on campus or off campus</that>
+      <template>
+        many students choose off campus housing after their first year troy has a variety of apartments and shared houses near campus for more resources check 
+       Starbucks Island, Citystation, and more if you are you looking for resources on rentals or just curious about pros and cons
+      </template>
+    </category>
 
 
   <!-- ==================================================
@@ -360,7 +283,8 @@
       <think><set name="favorite_subject"><star/></set></think>
       That's wonderful! RPI offers excellent programs in <get name="favorite_subject"/>.
       <br/><br/>
-      Would you like to explore the admissions requirements for this field or learn about potential career opportunities?
+      Would you like to explore the admissions requirements for this field 
+      or learn about potential career opportunities?
     </template>
   </category>
 
@@ -384,7 +308,8 @@
     <template>
       Yes, you can visit RPI! We offer both in-person and virtual tours.
       <br/><br/>
-      Would you like assistance scheduling a visit or more information about what to expect during a tour?
+      Would you like assistance scheduling a visit 
+      or more information about what to expect during a tour?
     </template>
   </category>
 
@@ -395,10 +320,11 @@
     <pattern>*</pattern>
     <template>
       <think><set name="lastinput"><star/></set></think>
-      I'm sorry, I don't have an answer for "<get name="lastinput"/>". 
+      I'm sorry, I don't have an answer for "<get name="lastinput"/>".
       Would you like to know about RPI admissions, programs, or campus life?
       If you want to see what I can answer, ask "Help".
     </template>
   </category>
 
 </aiml>
+ 
